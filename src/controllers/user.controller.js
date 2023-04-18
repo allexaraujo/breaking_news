@@ -16,7 +16,13 @@ const create = async (req, res) => {
 
         res.status(201).send({
             message: "User created Successfully",
-            user
+            user: {
+                name,
+                username,
+                email,
+                avatar,
+                background
+            }
         });
     } catch (error) {
         res.status(500).send({ message: `Internal Server Error: ${error.message}` });
