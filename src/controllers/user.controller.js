@@ -34,8 +34,8 @@ const findAll = async (req, res) => {
     try {
         const users = await userService.findAll();
 
-        if (users === 0) {
-            return res.status(404).send({ message: "This collection of users is empty" });
+        if (users.length === 0) {
+            return res.status(404).send({ message: "the collection of users is empty" });
         }
 
         res.send(users);
