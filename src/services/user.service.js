@@ -1,4 +1,4 @@
-const User = require('../models/User');
+import User from '../models/User.js';
 
 const create = (body) => User.create(body)
 const findAll = () => User.find();
@@ -17,4 +17,4 @@ const update = (
         { name, username, email, password, avatar, background }
     );
 
-module.exports = { create, findAll, getFindById, update };
+export default { create, findAll, getFindById, update };
