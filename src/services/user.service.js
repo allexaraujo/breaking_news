@@ -17,4 +17,4 @@ const update = (
         { name, username, email, password, avatar, background }
     );
 
-export default { create, findAll, getFindById, update };
+export { create, findAll, getFindById, update };

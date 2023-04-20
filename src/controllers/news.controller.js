@@ -12,7 +12,7 @@ const create = async (req, res) => {
             title,
             text,
             banner,
-            user: { _id: "643eeba840fb3a689e0487e9" }
+            user: { _id: req.userId }
         });
         res.status(201).send({ message: 'news created' });
     } catch (error) {

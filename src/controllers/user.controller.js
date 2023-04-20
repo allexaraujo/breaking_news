@@ -1,4 +1,5 @@
-import userService from '../services/user.service.js';
+import { create as createService, findAll as findAllService, update as updateService } from '../services/user.service.js';
+
 
 const create = async (req, res) => {
     try {
@@ -8,7 +9,7 @@ const create = async (req, res) => {
             res.status(400).send({ message: "Submit all fields for registration" });
         }
 
-        const user = await userService.create(req.body);
+        const user = await createService(req.body);
 
         if (!user) {
             return res.status(400).send({ messa: "Error creating Users" });
@@ -32,7 +33,7 @@ const create = async (req, res) => {
 
 const findAll = async (req, res) => {
     try {
-        const users = await userService.findAll();
+        const users = await findAllService();
 
         if (users.length === 0) {
             return res.status(404).send({ message: "the collection of users is empty" });
@@ -65,7 +66,7 @@ const update = async (req, res) => {
 
         const { id, user } = req;
 
-        await userService.update(
+        await updateService(
             id,
             name,
             username,
